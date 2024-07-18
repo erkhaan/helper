@@ -1,3 +1,3 @@
 # helper
  
-macOS menu bar application with prrsonal dev utilities
+macOS menu bar application with personal dev utilities

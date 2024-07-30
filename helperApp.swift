@@ -14,6 +14,14 @@ struct helperApp: App {
             Button("Fetch flutter module updates") {
                 callShell()
             }
+            Divider()
+            Button("Install test") {
+                installTest()
+            }
+            Button("Install prod") {
+                installProd()
+            }
+            Divider()
             Button("Quit") {
                 exitApp()
             }
@@ -21,6 +29,21 @@ struct helperApp: App {
             Image(systemName: "swift")
         }
         .menuBarExtraStyle(.menu)
+    }
+    
+    private func install(_ url: String) {
+        guard let url = URL(string: url) else {
+            return
+        }
+        NSWorkspace.shared.open(url)
+    }
+    
+    private func installTest() {
+        install(Urls.Test)
+    }
+    
+    private func installProd() {
+        install(Urls.Prod)
     }
     
     private func exitApp() {

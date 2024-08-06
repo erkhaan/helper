@@ -8,20 +8,24 @@
 
 /* Begin PBXBuildFile section */
 		8B2DBC152C58E9A50033DA16 /* Urls.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B2DBC142C58E9A50033DA16 /* Urls.swift */; };
+		8B4570512C61CC6300A5A4D8 /* derived_data.sh in Resources */ = {isa = PBXBuildFile; fileRef = 8B4570502C61CC6300A5A4D8 /* derived_data.sh */; };
+		8B4570542C61D90A00A5A4D8 /* Scripts.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B4570532C61D90A00A5A4D8 /* Scripts.swift */; };
 		8B82DC202C48DFD00041A447 /* helperApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B82DC1F2C48DFD00041A447 /* helperApp.swift */; };
 		8B82DC242C48DFD20041A447 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8B82DC232C48DFD20041A447 /* Assets.xcassets */; };
 		8B82DC272C48DFD20041A447 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8B82DC262C48DFD20041A447 /* Preview Assets.xcassets */; };
-		8B82DC2F2C48EA500041A447 /* script.sh in Resources */ = {isa = PBXBuildFile; fileRef = 8B82DC2E2C48EA500041A447 /* script.sh */; };
+		8B82DC2F2C48EA500041A447 /* flutter.sh in Resources */ = {isa = PBXBuildFile; fileRef = 8B82DC2E2C48EA500041A447 /* flutter.sh */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		8B2DBC142C58E9A50033DA16 /* Urls.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Urls.swift; sourceTree = "<group>"; };
+		8B4570502C61CC6300A5A4D8 /* derived_data.sh */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.script.sh; name = derived_data.sh; path = helper/Scripts/derived_data.sh; sourceTree = SOURCE_ROOT; };
+		8B4570532C61D90A00A5A4D8 /* Scripts.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Scripts.swift; sourceTree = "<group>"; };
 		8B82DC1C2C48DFD00041A447 /* helper.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = helper.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		8B82DC1F2C48DFD00041A447 /* helperApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = helperApp.swift; sourceTree = "<group>"; };
 		8B82DC232C48DFD20041A447 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		8B82DC262C48DFD20041A447 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		8B82DC282C48DFD20041A447 /* helper.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = helper.entitlements; sourceTree = "<group>"; };
-		8B82DC2E2C48EA500041A447 /* script.sh */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.script.sh; name = script.sh; path = helper/script.sh; sourceTree = SOURCE_ROOT; };
+		8B82DC2E2C48EA500041A447 /* flutter.sh */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.script.sh; name = flutter.sh; path = helper/Scripts/flutter.sh; sourceTree = SOURCE_ROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -39,8 +43,18 @@
 			isa = PBXGroup;
 			children = (
 				8B2DBC142C58E9A50033DA16 /* Urls.swift */,
+				8B4570532C61D90A00A5A4D8 /* Scripts.swift */,
 			);
 			path = Constants;
+			sourceTree = "<group>";
+		};
+		8B4570522C61CC6B00A5A4D8 /* Scripts */ = {
+			isa = PBXGroup;
+			children = (
+				8B82DC2E2C48EA500041A447 /* flutter.sh */,
+				8B4570502C61CC6300A5A4D8 /* derived_data.sh */,
+			);
+			path = Scripts;
 			sourceTree = "<group>";
 		};
 		8B82DC132C48DFD00041A447 = {
@@ -62,8 +76,8 @@
 		8B82DC1E2C48DFD00041A447 /* helper */ = {
 			isa = PBXGroup;
 			children = (
+				8B4570522C61CC6B00A5A4D8 /* Scripts */,
 				8B2DBC132C58E9830033DA16 /* Constants */,
-				8B82DC2E2C48EA500041A447 /* script.sh */,
 				8B82DC1F2C48DFD00041A447 /* helperApp.swift */,
 				8B82DC232C48DFD20041A447 /* Assets.xcassets */,
 				8B82DC282C48DFD20041A447 /* helper.entitlements */,
@@ -138,7 +152,8 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				8B82DC2F2C48EA500041A447 /* script.sh in Resources */,
+				8B4570512C61CC6300A5A4D8 /* derived_data.sh in Resources */,
+				8B82DC2F2C48EA500041A447 /* flutter.sh in Resources */,
 				8B82DC272C48DFD20041A447 /* Preview Assets.xcassets in Resources */,
 				8B82DC242C48DFD20041A447 /* Assets.xcassets in Resources */,
 			);
@@ -151,6 +166,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8B4570542C61D90A00A5A4D8 /* Scripts.swift in Sources */,
 				8B82DC202C48DFD00041A447 /* helperApp.swift in Sources */,
 				8B2DBC152C58E9A50033DA16 /* Urls.swift in Sources */,
 			);

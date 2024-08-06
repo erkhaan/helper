@@ -12,7 +12,7 @@ struct helperApp: App {
     var body: some Scene {
         MenuBarExtra {
             Button("Fetch flutter module updates") {
-                callShell()
+                callFlutterShell()
             }
             Divider()
             Button("Install test") {
@@ -51,15 +51,48 @@ struct helperApp: App {
     }
     
     private func removeDerivedData() {
-        // TODO: -
+        guard let scriptPath = getBundlePath(named: Scripts.derived) else {
+            print("Script file not found in bundle.")
+            return
+        }
+        let arguments = [scriptPath]
+        runScript(with: arguments)
     }
     
     private func exitApp() {
         NSApplication.shared.terminate(nil)
     }
     
-    private func callShell() {
-        guard let scriptPath = Bundle.main.path(forResource: "script", ofType: "sh") else {
+    private func getBundlePath(named: String) -> String? {
+        Bundle.main.path(forResource: named, ofType: "sh")
+    }
+    
+    private func runScript(
+        with arguments: [String]
+    ) {
+        let task = Process()
+        let arguments = arguments
+        let pipe = Pipe()
+        task.standardOutput = pipe
+        task.standardError = pipe
+        task.arguments = arguments
+        task.executableURL = URL(fileURLWithPath: "/bin/zsh")
+        DispatchQueue.global(qos: .utility).async {
+            do {
+                try task.run()
+                task.waitUntilExit()
+                let data = pipe.fileHandleForReading.readDataToEndOfFile()
+                if let output = String(data: data, encoding: .utf8) {
+                    print("Script output: \(output)")
+                }
+            } catch {
+                print("Failed to run script: \(error)")
+            }
+        }
+    }
+    
+    private func callFlutterShell() {
+        guard let scriptPath = Bundle.main.path(forResource: "flutter", ofType: "sh") else {
             print("Script file not found in bundle.")
             return
         }
@@ -71,7 +104,6 @@ struct helperApp: App {
         task.arguments = arguments
         task.standardOutput = pipe
         task.standardError = pipe
-        task.standardInput = nil
         task.executableURL = URL(fileURLWithPath: "/bin/zsh")
         DispatchQueue.global(qos: .utility).async {
             do {
